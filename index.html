@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مركز توليب للسهرات</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom Pink Palette */
@@ -17,14 +17,16 @@
         }
 
         body {
-            font-family: 'Amiri', serif; /* Elegant Arabic font */
+            font-family: 'Inter', sans-serif; /* General, clear font for all normal text */
             background-color: var(--tulip-pink-light);
-            color: var(--tulip-pink-dark);
+            color: #333; /* Dark gray for general text, close to black */
+            font-weight: 500; /* Slightly bolder than normal for readability */
         }
 
         .tulip-heading {
-            font-family: 'Amiri', serif;
+            font-family: 'Amiri', serif; /* Elegant Arabic font for main headings */
             font-weight: 700; /* Bold */
+            color: var(--tulip-pink-accent); /* Keep main heading color */
         }
 
         .card-header {
@@ -32,6 +34,11 @@
             color: var(--tulip-pink-accent);
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            /* Ensure content is centered */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Space between text and icon */
         }
 
         .card-header:hover {
@@ -42,13 +49,15 @@
 
         .card-content {
             background-color: white;
-            max-height: 0;
+            max-height: 0; /* Hidden by default */
             overflow: hidden;
-            transition: max-height 0.5s ease-out;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transition padding too */
+            padding: 0 20px; /* Initial padding, will expand */
         }
 
         .card-content.open {
-            max-height: 500px; /* Sufficiently large value */
+            max-height: 500px; /* Sufficiently large value to show content */
+            padding: 20px; /* Expanded padding */
         }
 
         .discount-banner {
@@ -71,22 +80,47 @@
         .contact-icon:hover {
             color: var(--tulip-pink-accent);
         }
+
+        /* Adjust icon rotation for RTL */
+        .card-header .fa-chevron-down {
+            transform: rotate(0deg);
+        }
+        .card-header .fa-chevron-down.rotate-180 {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
 
     <header class="w-full max-w-4xl text-center mb-8">
-        <h1 class="text-5xl sm:text-6xl tulip-heading text-tulip-pink-accent leading-tight">
+        <h1 class="text-5xl sm:text-6xl tulip-heading leading-tight">
             مركز توليب للسهرات
         </h1>
     </header>
 
+    <section class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 flex flex-col sm:flex-row justify-around items-center gap-4 text-tulip-pink-dark">
+        <div class="flex items-center gap-2 text-xl sm:text-2xl font-bold">
+            <span class="text-3xl">🇸🇦</span>
+            <span>أعضاء في السعودية: 3720</span>
+        </div>
+        <div class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-green-600">
+            <span class="text-3xl">🟢</span>
+            <span>المتصلون الآن: 1362</span>
+        </div>
+    </section>
+
     <main class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 sm:p-8 space-y-8">
 
         <section class="text-center mb-10">
-            <h2 class="text-3xl sm:text-4xl tulip-heading text-tulip-pink-dark leading-relaxed">
+            <h2 class="text-3xl sm:text-4xl tulip-heading leading-relaxed">
                 "مركز توليب للسهرات وتنسيق ليالي ممتعة وتعارف ومساج ومسيار وعلني الموثوق"
             </h2>
+
+            <img src="https://i.postimg.cc/CMtD6M50/signal.jpg" alt="صورة عرض لفتيات جميلات" class="w-full h-auto rounded-lg shadow-md my-8 object-cover">
+
+            <p class="text-lg sm:text-xl text-gray-800 font-semibold mt-8">
+                نبذل قصارى جهدنا للحصول على جميع الخدمات بأعلى جودة، فلدينا خدمة عملاء لتلقي الاقتراحات والشكاوى من أعضائنا والعمل على تطويرها.
+            </p>
         </section>
 
         <section class="discount-banner p-4 sm:p-6 rounded-lg shadow-md text-center text-lg sm:text-xl font-bold flex items-center justify-center gap-2 mb-10">
@@ -97,16 +131,16 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
             <div class="card bg-white rounded-lg shadow-md overflow-hidden border border-tulip-pink-medium">
-                <div class="card-header p-5 text-xl font-semibold rounded-t-lg flex justify-between items-center" onclick="toggleCard(this)">
+                <div class="card-header p-5 text-xl font-semibold rounded-t-lg" onclick="toggleCard(this)">
                     <span>خدماتنا</span>
                     <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
                 </div>
-                <div class="card-content p-5 text-tulip-pink-dark text-lg">
+                <div class="card-content text-gray-800 text-lg">
                     <ul class="list-none space-y-3 mb-4">
-                        <li><i class="fas fa-handshake ml-2 text-tulip-pink-accent"></i>تعارف</li>
-                        <li><i class="fas fa-moon ml-2 text-tulip-pink-accent"></i>ليالي ممتعة</li>
+                        <li><i class="fas fa-handshake ml-2 text-tulip-pink-accent"></i>تعارف 🔥</li>
+                        <li><i class="fas fa-moon ml-2 text-tulip-pink-accent"></i>ليالي ممتعة 🔥</li>
                         <li><i class="fas fa-champagne-glasses ml-2 text-tulip-pink-accent"></i>سهرات</li>
-                        <li><i class="fas fa-spa ml-2 text-tulip-pink-accent"></i>مساج</li>
+                        <li><i class="fas fa-spa ml-2 text-tulip-pink-accent"></i>مساج 🔥</li>
                         <li><i class="fas fa-ring ml-2 text-tulip-pink-accent"></i>زواج مسيار</li>
                         <li><i class="fas fa-heart ml-2 text-tulip-pink-accent"></i>زواج علني</li>
                     </ul>
@@ -117,11 +151,11 @@
             </div>
 
             <div class="card bg-white rounded-lg shadow-md overflow-hidden border border-tulip-pink-medium">
-                <div class="card-header p-5 text-xl font-semibold rounded-t-lg flex justify-between items-center" onclick="toggleCard(this)">
+                <div class="card-header p-5 text-xl font-semibold rounded-t-lg" onclick="toggleCard(this)">
                     <span>نظامنا</span>
                     <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
                 </div>
-                <div class="card-content p-5 text-tulip-pink-dark text-lg">
+                <div class="card-content text-gray-800 text-lg">
                     <ul class="list-none space-y-3">
                         <li><i class="fas fa-money-bill-wave ml-2 text-tulip-pink-accent"></i>دفع مقدم للسهرات والتجهيزات</li>
                         <li><i class="fas fa-money-bill-wave ml-2 text-tulip-pink-accent"></i>دفع مقدم للتعارف</li>
@@ -130,25 +164,37 @@
                         <li><i class="fas fa-file-invoice-dollar ml-2 text-tulip-pink-accent"></i>الزواج العلني: دفع كامل مقدمًا</li>
                         <li><i class="fas fa-file-invoice-dollar ml-2 text-tulip-pink-accent"></i>الزواج المسيار: نصف المبلغ من العميل، والنصف الآخر من العميلة</li>
                     </ul>
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        "موثوق جدًا وسرية تامة، هذا شعارنا 💞"
+                    </p>
                 </div>
             </div>
 
             <div class="card bg-white rounded-lg shadow-md overflow-hidden border border-tulip-pink-medium">
-                <div class="card-header p-5 text-xl font-semibold rounded-t-lg flex justify-between items-center" onclick="toggleCard(this)">
-                    <span>متوفر لدينا</span>
+                <div class="card-header p-5 text-xl font-semibold rounded-t-lg" onclick="toggleCard(this)">
+                    <span>متوفر لدينا 🫦🔥</span>
                     <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
                 </div>
-                <div class="card-content p-5 text-tulip-pink-dark text-lg">
+                <div class="card-content text-gray-800 text-lg">
                     <ul class="list-none space-y-3">
                         <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>الرياض</li>
                         <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>جدة</li>
                         <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>الطائف</li>
                         <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>جيزان</li>
                     </ul>
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        "موثوق جدًا وسرية تامة، هذا شعارنا 💞"
+                    </p>
                 </div>
             </div>
 
         </div> </main>
+
+    <section class="w-full max-w-4xl text-center mt-12 p-6 bg-white rounded-xl shadow-lg">
+        <p class="text-lg sm:text-xl text-gray-800 leading-relaxed">
+            التعارف عن طريق الإنترنت هو الأفضل، فلا مجال للمواقف المحرجة كتلك التي تحدث عند التعارف المباشر، بالتالي يمكنك معرفة شريكك المستقبلي بشكل أكبر، وتزيد فرص نجاح التعارف بشكل سليم. الآلاف يستخدمون مركز توليب 💍👩‍❤️‍👨 يوميًا من جميع أنحاء العالم للبحث عن شريكهم، أنت أيضًا يجب أن تكون معنا.
+        </p>
+    </section>
 
     <footer class="w-full max-w-4xl text-center mt-12 p-6 bg-white rounded-xl shadow-lg">
         <h3 class="text-2xl tulip-heading text-tulip-pink-dark mb-6">جهات التواصل</h3>
