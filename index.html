@@ -72,6 +72,19 @@
             100% { transform: scale(1); }
         }
 
+        /* New animation for the "Book Now" button - adjusted for opacity */
+        .btn-pulse {
+            animation: pulse-button 2s infinite ease-in-out;
+            /* Ensure the background is solid */
+            background-color: var(--tulip-pink-accent); /* Solid background */
+        }
+
+        @keyframes pulse-button {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(216, 27, 96, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(216, 27, 96, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(216, 27, 96, 0); }
+        }
+
         .contact-icon {
             color: var(--tulip-pink-dark);
             transition: color 0.3s ease;
@@ -101,7 +114,7 @@
     <section class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 flex flex-col sm:flex-row justify-around items-center gap-4 text-tulip-pink-dark">
         <div class="flex items-center gap-2 text-xl sm:text-2xl font-bold">
             <span class="text-3xl">🇸🇦</span>
-            <span>أعضاء في السعودية: 3720</span>
+            <span>مستخدمون هذا الموقع: 3720</span>
         </div>
         <div class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-green-600">
             <span class="text-3xl">🟢</span>
@@ -116,7 +129,7 @@
                 "مركز توليب للسهرات وتنسيق ليالي ممتعة وتعارف ومساج ومسيار وعلني الموثوق"
             </h2>
 
-            <img src="https://i.postimg.cc/CMtD6M50/signal.jpg" alt="صورة عرض لفتيات جميلات" class="w-full h-auto rounded-lg shadow-md my-8 object-cover">
+            <img src="https://i.postimg.cc/CxcYkBX0/signal.jpg" alt="[attachment_0](attachment)" class="w-full h-auto rounded-lg shadow-md my-8 object-cover">
 
             <p class="text-lg sm:text-xl text-gray-800 font-semibold mt-8">
                 نبذل قصارى جهدنا للحصول على جميع الخدمات بأعلى جودة، فلدينا خدمة عملاء لتلقي الاقتراحات والشكاوى من أعضائنا والعمل على تطويرها.
@@ -194,6 +207,12 @@
         <p class="text-lg sm:text-xl text-gray-800 leading-relaxed">
             التعارف عن طريق الإنترنت هو الأفضل، فلا مجال للمواقف المحرجة كتلك التي تحدث عند التعارف المباشر، بالتالي يمكنك معرفة شريكك المستقبلي بشكل أكبر، وتزيد فرص نجاح التعارف بشكل سليم. الآلاف يستخدمون مركز توليب 💍👩‍❤️‍👨 يوميًا من جميع أنحاء العالم للبحث عن شريكهم، أنت أيضًا يجب أن تكون معنا.
         </p>
+    </section>
+
+    <section class="w-full max-w-xs mx-auto my-8">
+        <a href="https://wa.me/966589942960" target="_blank" class="block w-full text-center bg-tulip-pink-accent text-white py-4 px-6 rounded-full shadow-lg hover:bg-tulip-pink-dark transition-colors duration-300 text-xl font-bold btn-pulse">
+            احجز الآن 🔥
+        </a>
     </section>
 
     <footer class="w-full max-w-4xl text-center mt-12 p-6 bg-white rounded-xl shadow-lg">
