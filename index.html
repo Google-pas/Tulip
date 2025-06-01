@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز توليب للسهرات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom Pink Palette */
+        :root {
+            --tulip-pink-light: #FCE4EC; /* Lightest pink for background */
+            --tulip-pink-medium: #F8BBD0; /* Medium pink for accents/borders */
+            --tulip-pink-dark: #E91E63; /* Darker pink for main text/headings */
+            --tulip-pink-accent: #D81B60; /* Even darker for strong accents */
+        }
+
+        body {
+            font-family: 'Amiri', serif; /* Elegant Arabic font */
+            background-color: var(--tulip-pink-light);
+            color: var(--tulip-pink-dark);
+        }
+
+        .tulip-heading {
+            font-family: 'Amiri', serif;
+            font-weight: 700; /* Bold */
+        }
+
+        .card-header {
+            background-color: var(--tulip-pink-medium);
+            color: var(--tulip-pink-accent);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .card-header:hover {
+            background-color: var(--tulip-pink-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .card-content {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .card-content.open {
+            max-height: 500px; /* Sufficiently large value */
+        }
+
+        .discount-banner {
+            background: linear-gradient(45deg, var(--tulip-pink-accent), var(--tulip-pink-dark));
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-icon {
+            color: var(--tulip-pink-dark);
+            transition: color 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            color: var(--tulip-pink-accent);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
+
+    <header class="w-full max-w-4xl text-center mb-8">
+        <h1 class="text-5xl sm:text-6xl tulip-heading text-tulip-pink-accent leading-tight">
+            مركز توليب للسهرات
+        </h1>
+    </header>
+
+    <main class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 sm:p-8 space-y-8">
+
+        <section class="text-center mb-10">
+            <h2 class="text-3xl sm:text-4xl tulip-heading text-tulip-pink-dark leading-relaxed">
+                "مركز توليب للسهرات وتنسيق ليالي ممتعة وتعارف ومساج ومسيار وعلني الموثوق"
+            </h2>
+        </section>
+
+        <section class="discount-banner p-4 sm:p-6 rounded-lg shadow-md text-center text-lg sm:text-xl font-bold flex items-center justify-center gap-2 mb-10">
+            <i class="fas fa-fire text-yellow-300"></i>
+            <span>🔥 تخفيض لمدة أسبوع على جميع الخدمات 🔥</span>
+            <i class="fas fa-arrow-left text-yellow-300"></i> </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden border border-tulip-pink-medium">
+                <div class="card-header p-5 text-xl font-semibold rounded-t-lg flex justify-between items-center" onclick="toggleCard(this)">
+                    <span>خدماتنا</span>
+                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                </div>
+                <div class="card-content p-5 text-tulip-pink-dark text-lg">
+                    <ul class="list-none space-y-3 mb-4">
+                        <li><i class="fas fa-handshake ml-2 text-tulip-pink-accent"></i>تعارف</li>
+                        <li><i class="fas fa-moon ml-2 text-tulip-pink-accent"></i>ليالي ممتعة</li>
+                        <li><i class="fas fa-champagne-glasses ml-2 text-tulip-pink-accent"></i>سهرات</li>
+                        <li><i class="fas fa-spa ml-2 text-tulip-pink-accent"></i>مساج</li>
+                        <li><i class="fas fa-ring ml-2 text-tulip-pink-accent"></i>زواج مسيار</li>
+                        <li><i class="fas fa-heart ml-2 text-tulip-pink-accent"></i>زواج علني</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        "موثوق جدًا وسرية تامة، هذا شعارنا 💞"
+                    </p>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden border border-tulip-pink-medium">
+                <div class="card-header p-5 text-xl font-semibold rounded-t-lg flex justify-between items-center" onclick="toggleCard(this)">
+                    <span>نظامنا</span>
+                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                </div>
+                <div class="card-content p-5 text-tulip-pink-dark text-lg">
+                    <ul class="list-none space-y-3">
+                        <li><i class="fas fa-money-bill-wave ml-2 text-tulip-pink-accent"></i>دفع مقدم للسهرات والتجهيزات</li>
+                        <li><i class="fas fa-money-bill-wave ml-2 text-tulip-pink-accent"></i>دفع مقدم للتعارف</li>
+                        <li><i class="fas fa-hand-holding-usd ml-2 text-tulip-pink-accent"></i>دفع نص المبلغ مقدم، والبقية كاش عند بداية الليلة الممتعة</li>
+                        <li><i class="fas fa-hand-holding-usd ml-2 text-tulip-pink-accent"></i>دفع نص المبلغ مقدمًا للمساج، والنصف الآخر عند حضور العميل</li>
+                        <li><i class="fas fa-file-invoice-dollar ml-2 text-tulip-pink-accent"></i>الزواج العلني: دفع كامل مقدمًا</li>
+                        <li><i class="fas fa-file-invoice-dollar ml-2 text-tulip-pink-accent"></i>الزواج المسيار: نصف المبلغ من العميل، والنصف الآخر من العميلة</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden border border-tulip-pink-medium">
+                <div class="card-header p-5 text-xl font-semibold rounded-t-lg flex justify-between items-center" onclick="toggleCard(this)">
+                    <span>متوفر لدينا</span>
+                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                </div>
+                <div class="card-content p-5 text-tulip-pink-dark text-lg">
+                    <ul class="list-none space-y-3">
+                        <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>الرياض</li>
+                        <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>جدة</li>
+                        <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>الطائف</li>
+                        <li><i class="fas fa-map-marker-alt ml-2 text-tulip-pink-accent"></i>جيزان</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> </main>
+
+    <footer class="w-full max-w-4xl text-center mt-12 p-6 bg-white rounded-xl shadow-lg">
+        <h3 class="text-2xl tulip-heading text-tulip-pink-dark mb-6">جهات التواصل</h3>
+        <div class="flex flex-wrap justify-center gap-6 text-3xl">
+            <a href="#" class="contact-icon hover:scale-110 transform transition-transform duration-200" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="contact-icon hover:scale-110 transform transition-transform duration-200" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="contact-icon hover:scale-110 transform transition-transform duration-200" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="contact-icon hover:scale-110 transform transition-transform duration-200" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p class="text-sm text-gray-400 mt-8">© 2025 مركز توليب للسهرات. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        // JavaScript for toggling card content
+        function toggleCard(headerElement) {
+            const content = headerElement.nextElementSibling; // Get the content div
+            const icon = headerElement.querySelector('i'); // Get the chevron icon
+
+            // Toggle the 'open' class on the content
+            content.classList.toggle('open');
+
+            // Rotate the icon
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>
+
